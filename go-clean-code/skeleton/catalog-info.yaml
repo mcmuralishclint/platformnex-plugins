@@ -4,17 +4,19 @@ kind: System
 metadata:
   name: marketplace
 spec:
-  owner: guests
+  owner: ${{values.owner | dump}}
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: go-clean-code
+  github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+  github.com/actions-workflow: https://github.com/${{values.destination.owner}}/${{values.destination.repo}}/actions
 spec:
-  type: backend
+  type: service
   lifecycle: experimental
-  owner: guests
+  owner: ${{values.owner | dump}}
   system: marketplace
   providesApis: [api1, api2, api3]
 ---
@@ -26,7 +28,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: guests
+  owner: ${{values.owner | dump}}
   system: marketplace
   definition: |
     openapi: "3.0.0"
@@ -48,7 +50,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: guests
+  owner: ${{values.owner | dump}}
   system: marketplace
   definition: |
     openapi: "3.0.0"
@@ -70,7 +72,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: guests
+  owner: ${{values.owner | dump}}
   system: marketplace
   definition: |
     openapi: "3.0.0"
