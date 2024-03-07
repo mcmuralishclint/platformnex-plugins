@@ -1,3 +1,3 @@
 module github.com/mcmuralishclint/platformnex-plugins/go-clean-code
 
-go 1.23
+go 1.19
