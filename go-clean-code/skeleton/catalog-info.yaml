@@ -11,6 +11,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: go-clean-code
+  links:
+    - url: https://dashboard.example.com
+      title: Admin Setting
+      icon: dashboard
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     github.com/actions-workflow: https://github.com/${{values.destination.owner}}/${{values.destination.repo}}/actions
