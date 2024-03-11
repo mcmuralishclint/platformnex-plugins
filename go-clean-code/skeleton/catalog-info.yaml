@@ -4,7 +4,7 @@ kind: System
 metadata:
   name: marketplace
 spec:
-  owner: ${{values.owner | dump}}
+  owner: "group:default/mcmuralishclint"
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
 apiVersion: backstage.io/v1alpha1
@@ -16,12 +16,13 @@ metadata:
       title: Admin Setting
       icon: dashboard
   annotations:
-    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
-    github.com/actions-workflow: https://github.com/${{values.destination.owner}}/${{values.destination.repo}}/actions
+    github.com/project-slug: mcmuralishclint/my-go-app
+    github.com/actions-workflow: https://github.com/mcmuralishclint/my-go-app/actions
+    backstage.io/kubernetes-id: go-clean-code
 spec:
   type: service
   lifecycle: experimental
-  owner: ${{values.owner | dump}}
+  owner: "group:default/mcmuralishclint"
   system: marketplace
   providesApis: [api1, api2, api3]
 ---
@@ -33,7 +34,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: ${{values.owner | dump}}
+  owner: "group:default/mcmuralishclint"
   system: marketplace
   definition: |
     openapi: "3.0.0"
@@ -55,7 +56,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: ${{values.owner | dump}}
+  owner: "group:default/mcmuralishclint"
   system: marketplace
   definition: |
     openapi: "3.0.0"
@@ -77,7 +78,7 @@ metadata:
 spec:
   type: http
   lifecycle: experimental
-  owner: ${{values.owner | dump}}
+  owner: "group:default/mcmuralishclint"
   system: marketplace
   definition: |
     openapi: "3.0.0"
